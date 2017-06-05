@@ -1,5 +1,5 @@
 {
-  "name": "SANE_Seed_Auth0",
+  "name": "SANE_Seed_Basic",
   "version": "0.0.0",
   "private": false,
   "scripts": {
@@ -8,10 +8,7 @@
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
-    "express-session": "^1.12.1",
-    "massive": "^2.5.0",
-    "passport": "^0.3.2",
-    "passport-auth0": "^0.6.0"
+    "massive": "^2.5.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
@@ -20,17 +17,17 @@
     "gulp-nodemon": "^2.2.1",
     "gulp-sass": "^2.3.2"
   },
-  "description": "This is a fully functional basic SANE stack app seed. It has passport (with Auth0), gulp, and sass capabilities.",
+  "description": "This is a fully functional basic SANE stack app seed. It has gulp and sass capabilities.",
   "main": "server/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DevSeedlings/SANE_Seed_Auth0.git"
+    "url": "git+https://github.com/lpabst/SANE_Seed_Basic.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DevSeedlings/SANE_Seed_Auth0/issues"
+    "url": "https://github.com/lpabst/SANE_Seed_Basic/issues"
   },
-  "homepage": "https://github.com/DevSeedlings/SANE_Seed_Auth0#readme"
+  "homepage": "https://github.com/lpabst/SANE_Seed_Basic#readme"
 }

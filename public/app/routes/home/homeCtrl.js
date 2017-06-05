@@ -1,14 +1,7 @@
-// INITILIZE CONTROLLER
-// ============================================================
 angular.module("app")
-  .controller("homeCtrl", function($scope, user) {
+.controller("homeCtrl", function($scope) {
 
-    // VARIABLES
-    // ============================================================
-    $scope.user = user;
-
-    // FUNCTIONS
-    // ============================================================
+  
 
 
-  });
+});
