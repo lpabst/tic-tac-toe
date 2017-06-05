@@ -1,8 +1,7 @@
-# SANE_Seed_Auth0
-This is a fully functional basic SANE stack app seed. It has passport Auth0, gulp, and sass capabilities.
+# SANE_Seed_Basic
+This is a fully functional basic SANE stack app seed. It has gulp, and sass capabilities.
+It is set to scss by default, but that can be changed in the gulpfile.js
 
-* Tested to work with google and facebook
-* This system will link all accounts with matching emails
 
 ## To use this seed
 
@@ -17,7 +16,7 @@ var port = 3000; // Feel free to change the port number
 
 module.exports = {
  PORT: port,
- MASSIVE_URI: 'postgres://localhost/testingdb',
+//  MASSIVE_URI: 'postgres://localhost/testingdb',
  INITALIZE_LOG: true
 };
 ```

@@ -7,11 +7,8 @@ var app = angular.module("app", ['ui.router'])
 			url: "/",
 			templateUrl: "./app/routes/home/homeTmpl.html",
 			controller: 'homeCtrl',
-			resolve: {
-				user: getUser
-			}
 		})
 
-	$urlRouterProvider.otherwise('/home');
+	$urlRouterProvider.otherwise('/');
 	
 });
