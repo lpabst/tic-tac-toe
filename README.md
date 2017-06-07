@@ -24,6 +24,8 @@ module.exports = {
 ### Gulp setup
 1. Run `npm install -g gulp` (if you have not installed it previously).
 2. In a terminal window, navigate to the project folder and run `gulp`.
+3. Note - npm i (above) will install all of the dependencies for you, 
+including local gulp and everything!
 
 ### Run
 1. In a new terminal window, navigate to the project folder and run `nodemon`.
