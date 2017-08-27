@@ -1,9 +1,12 @@
 // APP //
 var app = require('./../index');
-var db = app.get('db');
+const config = require('./../config.js');
 
 module.exports = {
 
+    exampleName: function(req, res, next){
+        const db = req.app.get('db');
+    }
 
 	
 };

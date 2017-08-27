@@ -28,7 +28,6 @@ var userCtrl = require('./controllers/userCtrl');
 
 
 
-var port = config.PORT;
-app.listen(port, function() {
-	console.log('Listening on port ' + port);
+app.listen(config.port, function() {
+	console.log('Listening on port ' + config.port);
 });

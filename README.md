@@ -12,12 +12,17 @@ It is set to scss by default, but that can be changed in the gulpfile.js
 
 #### should look something like this. (Update for your use)
 ```javascript
-var port = 3000; // Feel free to change the port number
-
 module.exports = {
- PORT: port,
-//  MASSIVE_URI: 'postgres://localhost/testingdb',
- INITALIZE_LOG: true
+    secret: "aetb34thjfcbn!%$*$n554#$^nannzsdfgbher#$%66e445gnlk",
+    connection: {
+      host: '',//DB host
+      port: 6789,//DB port,
+      database: '',// DB database
+      user: '',// DB user
+      password: '', //DB password
+      ssl: true
+    },
+    port: 8085
 };
 ```
 
