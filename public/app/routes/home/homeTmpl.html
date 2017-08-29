@@ -2,15 +2,17 @@
 <section class="home">
 
     <div class="board">
-        <div class="square top left"></div>
-        <div class="square top"></div>
-        <div class="square top right"></div>
-        <div class="square left"></div>
-        <div class="square"></div>
-        <div class="square right"></div>
-        <div class="square bottom left"></div>
-        <div class="square bottom"></div>
-        <div class="square bottom right"></div>
+        <div class="square top left" ng-click="chooseSquare([0,0])">{{ board[0][0] }}</div>
+        <div class="square top" ng-click="chooseSquare([0,1])">{{ board[0][1] }}</div>
+        <div class="square top right" ng-click="chooseSquare([0,2])">{{ board[0][2] }}</div>
+        <div class="square left" ng-click="chooseSquare([1,0])">{{ board[1][0] }}</div>
+        <div class="square" ng-click="chooseSquare([1,1])">{{ board[1][1] }}</div>
+        <div class="square right" ng-click="chooseSquare([1,2])">{{ board[1][2] }}</div>
+        <div class="square bottom left" ng-click="chooseSquare([2,0])">{{ board[2][0] }}</div>
+        <div class="square bottom" ng-click="chooseSquare([2,1])">{{ board[2][1] }}</div>
+        <div class="square bottom right" ng-click="chooseSquare([2,2])">{{ board[2][2] }}</div>
     </div>
+
+    <div class="reset_board" ng-click="resetBoard()">Start Over</div>
 
 </section>
