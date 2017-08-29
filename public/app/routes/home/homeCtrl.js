@@ -7,6 +7,8 @@ angular.module("app")
         ['', '', '']
     ]
     $scope.turn = 'x'
+    $scope.player1 = 'Human';
+    $scope.player2 = 'Human';
 
   $scope.chooseSquare = function(arr){
       if ($scope.board[arr[0]][arr[1]]){
@@ -21,14 +23,17 @@ angular.module("app")
         }
         checkWinner()
       }
-    
+      console.log($scope.player1, $scope.player2)
   }
 
   function checkWinner(){
       for (var i = 0; i < 2; i ++){
           //horizontal
         if ($scope.board[i][0] === 'x' && $scope.board[i][1] === 'x' && $scope.board[i][2] === 'x'){
-            setTimeout(function(){alert('X won')}, 20)
+            setTimeout(function(){
+                alert('X won');
+                $scope.board = [['', '', ''], ['', '', ''], ['', '', '']]
+            }, 20)
         }else if ($scope.board[i][0] === 'o' && $scope.board[i][1] === 'o' && $scope.board[i][2] === 'o'){
             setTimeout(function(){alert('O won')}, 20)
         }

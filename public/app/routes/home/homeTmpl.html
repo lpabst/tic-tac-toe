@@ -1,6 +1,21 @@
 
 <section class="home">
 
+    <div class="player_select">
+        <span>Player 1: 
+            <select ng-model="player1">
+                <option>Human</option>
+                <option>Computer</option>
+            </select>
+        </span>
+        <span>Player 2: 
+            <select ng-model="player2">
+                <option>Human</option>
+                <option>Computer</option>
+            </select>
+        </span>
+    </div>
+
     <div class="board">
         <div class="square top left" ng-click="chooseSquare([0,0])">{{ board[0][0] }}</div>
         <div class="square top" ng-click="chooseSquare([0,1])">{{ board[0][1] }}</div>
