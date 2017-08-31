@@ -1,2 +1,2 @@
 # Tic-tac-toe
-This is a simple tic-tac-toe game I am in the process of building
+This is a simple tic-tac-toe game with an option to play against the computer AI that I built!
