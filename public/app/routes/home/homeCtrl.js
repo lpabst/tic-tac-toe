@@ -109,7 +109,17 @@ angular.module("app")
                             }
                         }
                     }
-                    //pick a random move
+                    //pick an open corner
+                    if (!board[0][0]){
+                        return [0,0]
+                    }else if (!board[0][2]){
+                        return [0,2]
+                    } else if (!board[2][0]){
+                        return [2,0]
+                    } else if (!board[2][2]){
+                        return [2,2]
+                    } 
+                    //pick a random move (which ends up being an edge piece)
                     let row = Math.floor(Math.random() * 3)
                     let column = Math.floor(Math.random() * 3)
                     if (board[row][column] !== ''){
@@ -118,7 +128,6 @@ angular.module("app")
                             column = Math.floor(Math.random() * 3)
                         }
                     }
-                    // console.log('random move')
                     return [row, column]
                 }
             }
