@@ -2,14 +2,14 @@
 <section class="home">
 
     <div class="player_select">
-        <span>Player 1: 
-            <select ng-model="player1">
+        <span>Player 1 (X)
+            <select ng-model="player1" ng-change="nextTurn()">
                 <option>Human</option>
                 <option>Computer</option>
             </select>
         </span>
-        <span>Player 2: 
-            <select ng-model="player2">
+        <span>Player 2 (O)
+            <select ng-model="player2" ng-change="nextTurn()">
                 <option>Human</option>
                 <option>Computer</option>
             </select>
