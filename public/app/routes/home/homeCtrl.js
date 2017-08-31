@@ -7,11 +7,15 @@ angular.module("app")
         ['', '', '']
     ]
     var testBoard = [
-        ['', '', 'x'],
-        ['', '', 'x'],
-        ['', '', 'x']
+        ['x', 'x', ''],
+        ['', 'o', ''],
+        ['o', '', '']
     ]
     $scope.turn = 'player1'
+    var match = {
+        'player1': 'x',
+        'player2': 'o'
+    }
     $scope.player1 = 'Human';
     $scope.player2 = 'Human';
 
@@ -70,19 +74,43 @@ angular.module("app")
         }
     }
 
-    $scope.getValidMove = function(){
-        let board = $scope.board;
+    $scope.getValidMove = function(boardInput){
+        let board = boardInput || $scope.board.slice();
         for (var i = 0; i < 3; i ++){
             if (board[0][i] === '' || board[1][i] === '' || board[2][i] === ''){
-                // console.log('found empty square');
                 if (board[1][1] === ''){
+                    console.log('first move')
                     return [1, 1]
                 }else{
-                    // for (var i = 0; i < 3; i++){
-                    //     for (var j = 0; j < 3; j ++){
-
-                    //     }
-                    // }
+                    //check for the win
+                    for (var i = 0; i < 3; i++){
+                        for (var j = 0; j < 3; j ++){
+                            if (board[i][j] === ''){
+                                let fakeBoard = [board[0].slice(), board[1].slice(), board[2].slice()]
+                                fakeBoard[i][j] = match[$scope.turn]
+                                if (checkWinner(fakeBoard)){
+                                    return [i, j]
+                                }
+                            }
+                        }
+                    }
+                    //check to block opponent's win
+                    for (var i = 0; i < 3; i++){
+                        for (var j = 0; j < 3; j ++){
+                            if (board[i][j] === ''){
+                                let fakeBoard = [board[0].slice(), board[1].slice(), board[2].slice()]
+                                for (var key in match){
+                                    if (key != $scope.turn){
+                                        fakeBoard[i][j] = match[key];
+                                        if (checkWinner(fakeBoard)){
+                                            return [i, j]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    //pick a random move
                     let row = Math.floor(Math.random() * 3)
                     let column = Math.floor(Math.random() * 3)
                     if (board[row][column] !== ''){
@@ -91,38 +119,41 @@ angular.module("app")
                             column = Math.floor(Math.random() * 3)
                         }
                     }
+                    // console.log('random move')
                     return [row, column]
                 }
-            }else{
-                // console.log('no empty squares on row ' + i)
             }
         }
         // console.log('no empty squares at all')
         return false;
     }
 
-    function checkWinner(){
-        var board = $scope.board;
-        // console.log(board)
-        for (var i = 0; i < 2; i ++){
+    function checkWinner(board){
+        var board = board || $scope.board;
+        for (var i = 0; i <= 2; i ++){
             //horizontal
+            // console.log(board[i][0], board[i][1], board[i][2])
             if (board[i][0] === 'x' && board[i][1] === 'x' && board[i][2] === 'x' || board[i][0] === 'o' && board[i][1] === 'o' && board[i][2] === 'o'){
+                // console.log('horizontal win on row ' + i)
                 return true;
             }
             //vertical
             else if (board[0][i] === 'o' && board[1][i] === 'o' && board[2][i] === 'o' || board[0][i] === 'x' && board[1][i] === 'x' && board[2][i] === 'x'){
-                console.log(i)
+                // console.log('vertical win on column ' + i)
                 return true;
             }
         }
         //top left to bottom right diagonal
         if (board[0][0] === 'o' && board[1][1] === 'o' && board[2][2] === 'o' || board[0][0] === 'x' && board[1][1] === 'x' && board[2][2] === 'x'){
+            // console.log('top left to bottom right winner')
             return true;
         }
         //top right to bottom left diagonal
         else if (board[2][0] === 'o' && board[1][1] === 'o' && board[0][2] === 'o' || board[2][0] === 'x' && board[1][1] === 'x' && board[0][2] === 'x'){
+            // console.log('top right to bottom left winner')
             return true;
         }else{
+            // console.log('no winner found')
             return false;
         }
     }
@@ -149,6 +180,7 @@ angular.module("app")
         $scope.nextTurn();
     }
 
-
+    // checkWinner(testBoard)
+    // $scope.getValidMove(testBoard)
 
 });
