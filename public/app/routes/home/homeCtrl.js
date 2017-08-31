@@ -6,6 +6,11 @@ angular.module("app")
         ['', '', ''],
         ['', '', '']
     ]
+    var testBoard = [
+        ['', '', 'x'],
+        ['', '', 'x'],
+        ['', '', 'x']
+    ]
     $scope.turn = 'player1'
     $scope.player1 = 'Human';
     $scope.player2 = 'Human';
@@ -98,6 +103,7 @@ angular.module("app")
 
     function checkWinner(){
         var board = $scope.board;
+        // console.log(board)
         for (var i = 0; i < 2; i ++){
             //horizontal
             if (board[i][0] === 'x' && board[i][1] === 'x' && board[i][2] === 'x' || board[i][0] === 'o' && board[i][1] === 'o' && board[i][2] === 'o'){
@@ -105,18 +111,20 @@ angular.module("app")
             }
             //vertical
             else if (board[0][i] === 'o' && board[1][i] === 'o' && board[2][i] === 'o' || board[0][i] === 'x' && board[1][i] === 'x' && board[2][i] === 'x'){
-                return true;
-            }
-            //top left to bottom right diagonal
-            else if (board[0][0] === 'o' && board[1][1] === 'o' && board[2][2] === 'o' || board[0][0] === 'x' && board[1][1] === 'x' && board[2][2] === 'x'){
-                return true;
-            }
-            //top right to bottom left diagonal
-            else if (board[2][0] === 'o' && board[1][1] === 'o' && board[0][2] === 'o' || board[2][0] === 'x' && board[1][1] === 'x' && board[0][2] === 'x'){
+                console.log(i)
                 return true;
             }
         }
-        return false;
+        //top left to bottom right diagonal
+        if (board[0][0] === 'o' && board[1][1] === 'o' && board[2][2] === 'o' || board[0][0] === 'x' && board[1][1] === 'x' && board[2][2] === 'x'){
+            return true;
+        }
+        //top right to bottom left diagonal
+        else if (board[2][0] === 'o' && board[1][1] === 'o' && board[0][2] === 'o' || board[2][0] === 'x' && board[1][1] === 'x' && board[0][2] === 'x'){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     function alertWinner(player){
