@@ -54,7 +54,7 @@ angular.module("app")
             return;
         }else{
             if ($scope.board[arr[0]][arr[1]]){
-                alert('That square has already been chosen');
+                return;
             }else{
                 if ($scope.turn === 'player1'){
                     $scope.board[arr[0]][arr[1]] = 'x'
@@ -79,7 +79,6 @@ angular.module("app")
         for (var i = 0; i < 3; i ++){
             if (board[0][i] === '' || board[1][i] === '' || board[2][i] === ''){
                 if (board[1][1] === ''){
-                    console.log('first move')
                     return [1, 1]
                 }else{
                     //check for the win
@@ -132,28 +131,22 @@ angular.module("app")
         var board = board || $scope.board;
         for (var i = 0; i <= 2; i ++){
             //horizontal
-            // console.log(board[i][0], board[i][1], board[i][2])
             if (board[i][0] === 'x' && board[i][1] === 'x' && board[i][2] === 'x' || board[i][0] === 'o' && board[i][1] === 'o' && board[i][2] === 'o'){
-                // console.log('horizontal win on row ' + i)
                 return true;
             }
             //vertical
             else if (board[0][i] === 'o' && board[1][i] === 'o' && board[2][i] === 'o' || board[0][i] === 'x' && board[1][i] === 'x' && board[2][i] === 'x'){
-                // console.log('vertical win on column ' + i)
                 return true;
             }
         }
         //top left to bottom right diagonal
         if (board[0][0] === 'o' && board[1][1] === 'o' && board[2][2] === 'o' || board[0][0] === 'x' && board[1][1] === 'x' && board[2][2] === 'x'){
-            // console.log('top left to bottom right winner')
             return true;
         }
         //top right to bottom left diagonal
         else if (board[2][0] === 'o' && board[1][1] === 'o' && board[0][2] === 'o' || board[2][0] === 'x' && board[1][1] === 'x' && board[0][2] === 'x'){
-            // console.log('top right to bottom left winner')
             return true;
         }else{
-            // console.log('no winner found')
             return false;
         }
     }
